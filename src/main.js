@@ -51,9 +51,9 @@ function analyzeSalesData(data, options) {
         || !Array.isArray(data.sellers)
         || data.sellers.length === 0
         || !Array.isArray(data.products)
-        || data.products.lenght === 0
+        || data.products.length === 0
         || !Array.isArray(data.purchase_records)
-        || data.purchase_records.lenght === 0
+        || data.purchase_records.length === 0
     ) {
         throw new Error("Некорректные входные данные");
     }
@@ -127,7 +127,7 @@ const productIndex = Object.fromEntries(
     const rankedSellers = Object.values(sellerIndex).sort((a, b) => b.profit - a.profit);
 
     // @TODO: Назначение премий на основе ранжирования
-    const totalSellers = rankedSellers.lenght;
+    const totalSellers = rankedSellers.length;
     rankedSellers.forEach((seller, index) => {
         seller.bonus = calculateBonus(index, totalSellers, seller);
     seller.top_products = Object.entries(seller.products_sold)
